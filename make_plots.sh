@@ -25,7 +25,7 @@ PLOT_SCRIPT='/nobackup/py21cb/templates/plot_flexpart_polar_subplots.py' # Path 
 # plot the time steps:
 mkdir -p plot_footprint
 cd plot_footprint
-${PLOT_SCRIPT} ../output/grid*.nc AIRTRACER 
+python3 ${PLOT_SCRIPT} ../output/grid*.nc AIRTRACER 
 
 # print the date:
 date
