@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the AIRTRACER directory and the file to be copied
-AIRTRACER_DIR="/nobackup/py21cb/AIRTRACER"
+AIRTRACER_DIR="/nobackup/py21cb/AREOTRACE_MPHASE"
 SCRIPT_TO_COPY="/nobackup/py21cb/templates/pos2txt0.sh"  # Update this path to the location of pos2txt.sh
 
 # Iterate through each subdirectory in AIRTRACER
@@ -24,3 +24,4 @@ do
 
   echo "Processed ${DIR} with XRNX replaced by ${SUB_DIR_NAME}"
 done
+

@@ -21,7 +21,8 @@ parse_config() {
 make_jobs() {
     local jobs
     jobs="$1"
-    local templ_dr="/nobackup/py21cb/AIRTRACER/run_template"  # Adjust path to template directory
+    local templ_dr="/nobackup/py21cb/templates/run_template"  # Adjust path to template directory
+    local airtracer_dir="/nobackup/py21cb/AREOTRACE_MPHASE"    
 
     # Split jobs into an array
     IFS=$'\n' read -r -d '' -a job_array <<< "$jobs"
@@ -38,7 +39,7 @@ make_jobs() {
         local longitude="${job_details[7]}"
 
         # Directory into which directories will be copied/models will be run
-        local out_dir="$(dirname "$(realpath "$0")")/$name"
+        local out_dir="${airtracer_dir}/${name}"
         mkdir -p "$out_dir"
 
         local run_dir="$out_dir/"
@@ -77,12 +78,12 @@ make_jobs() {
         # Update command file
         sed -i -e "s|XEDX|$start_date|g" \
                -e "s|XETX|$end_time|g" \
-               -e "s|XSDX|$(date -d "$start_date - 7 days" +%Y%m%d)|g" \
+               -e "s|XSDX|$(date -d "$start_date - 14 days" +%Y%m%d)|g" \
                "$run_dir/options/COMMAND"
 
         # Copy and update job script
-        cp /nobackup/py21cb/AIRTRACER/run_template/run_job.sh "$run_dir/run_job.sh"
-        sed -i -e "s|0:20:00|0:50:00|g" \
+        cp /nobackup/py21cb/templates/run_template/run_job.sh "$run_dir/run_job.sh"
+        sed -i -e "s|0:20:00|2:00:00|g" \
                "$run_dir/run_job.sh"
 
         chmod 755 "$run_dir/run_job.sh"
@@ -90,7 +91,7 @@ make_jobs() {
 }
 
 # Main script
-config_file="/nobackup/py21cb/templates/config"  # Adjust path to config file
+config_file="/nobackup/py21cb/templates/config_MPHASE"  # Adjust path to config file
 jobs=$(parse_config "$config_file")
 make_jobs "$jobs"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Modify the directory path here
-BASE_DIR="/nobackup/py21cb/AIRTRACER/"
+BASE_DIR="/nobackup/py21cb/AREOTRACE_MPHASE/"
 ALL_DIRS=$(find "$BASE_DIR" -maxdepth 1 -type d)
 
 for DIR in ${ALL_DIRS}
@@ -12,3 +12,4 @@ do
   fi
   popd
 done
+

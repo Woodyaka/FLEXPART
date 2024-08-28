@@ -21,7 +21,7 @@ for i, posit in enumerate(posits):
         cur = np.genfromtxt(posit, delimiter = ',', usecols = [1,2,3, 9]) # lon, lat, height (m), BL height
         cur.shape = [cur.shape[0],4,1]
         tracks = np.append(tracks,cur, axis = 2)
-        times=np.append(times, posit[posit.find('_201')+1:-4]) # edit this _201 to the relevent numbers of the partposit files
+        times=np.append(times, posit[posit.find('_202')+1:-4]) # edit this _201 to the relevent numbers of the partposit files
     except:
         continue
 
