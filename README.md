@@ -1,9 +1,3 @@
 Not all mine most edited from existing scripts here https://github.com/cemacrr/flexpart-summit_runs 
 
-TODO:
-
-Replace all scripts with the new versions
-
-Create a proper README
-
-Comment code properly
+These are the most up to date scripts I used to process FLEXPART files to create plots.
